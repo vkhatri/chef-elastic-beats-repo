@@ -9,5 +9,5 @@ default['elastic_beats_repo']['yum']['action'] = :create
 
 default['elastic_beats_repo']['apt']['description'] = 'Elastic Beats Repository'
 default['elastic_beats_repo']['apt']['components'] = %w[stable main]
-default['elastic_beats_repo']['apt']['distribution'] = node['lsb']['codename']
+default['elastic_beats_repo']['apt']['distribution'] = ''
 default['elastic_beats_repo']['apt']['action'] = :add

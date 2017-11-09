@@ -104,7 +104,7 @@ https://github.com/vkhatri/chef-elastic-beats-repo
 
 * `default['elastic_beats_repo']['apt']['key']` (default: `calculated`): apt repository attribute
 
-* `default['elastic_beats_repo']['apt']['distribution']` (default: `node['lsb']['codename']`): apt repository attribute
+* `default['elastic_beats_repo']['apt']['distribution']` (default: ``): apt repository attribute
 
 * `default['elastic_beats_repo']['apt']['action']` (default: `:add`): apt repository attribute
 
