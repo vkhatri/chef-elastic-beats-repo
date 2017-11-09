@@ -30,7 +30,7 @@ describe package('metricbeat') do
   its('version') { should match '5.6.3' }
 end
 
-describe package('heartbeat') do
-  it { should be_installed }
-  its('version') { should match '5.6.3' }
-end
+# describe package('heartbeat') do
+#  it { should be_installed }
+#  its('version') { should match '5.6.3' }
+# end
