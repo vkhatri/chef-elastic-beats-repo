@@ -8,7 +8,3 @@
     version %w[fedora rhel amazon].include?(node['platform_family']) ? '5.6.9-1' : '5.6.9'
   end
 end
-
-package 'heartbeat' do
-  options '--disablerepo=* --enablerepo=beats'
-end
