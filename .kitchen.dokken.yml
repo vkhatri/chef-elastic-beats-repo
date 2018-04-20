@@ -12,6 +12,8 @@ verifier:
 provisioner:
   name: dokken
   attributes:
+    elastic_beats_repo:
+      version: 6.2.4
     apt:
       confd:
         install_recommends: false
@@ -81,32 +83,44 @@ platforms:
       intermediate_instructions:
         - RUN yum install -y net-tools initscripts which
 
+  - name: amazon2
+    driver:
+      image: amazonlinux:2
+      pid_one_command: /usr/lib/systemd/systemd
+      platform: amazon
+      intermediate_instructions:
+        - RUN yum install -y net-tools initscripts
+
 suites:
-  - name: chef12v1
+  - name: chef12v6
     driver:
       chef_version: 12.21.4
     verifier:
       inspec_tests:
-        - test/smoke/v1
+        - test/smoke/v6
     run_list:
       - recipe[elastic_beats_repo::default]
-      - recipe[elastic_beats_repo_test::v1]
-    attributes:
-      elastic_beats_repo:
-        version: 1.3.1
+      - recipe[elastic_beats_repo_test::v6]
 
-  - name: chef13v1
+  - name: chef13v6
     driver:
       chef_version: 13.3.42
     verifier:
       inspec_tests:
-        - test/smoke/v1
+        - test/smoke/v6
     run_list:
       - recipe[elastic_beats_repo::default]
-      - recipe[elastic_beats_repo_test::v1]
-    attributes:
-      elastic_beats_repo:
-        version: 1.3.1
+      - recipe[elastic_beats_repo_test::v6]
+
+  - name: chef14v6
+    driver:
+      chef_version: 14.0.201
+    verifier:
+      inspec_tests:
+        - test/smoke/v6
+    run_list:
+      - recipe[elastic_beats_repo::default]
+      - recipe[elastic_beats_repo_test::v6]
 
   - name: chef12v5
     driver:
@@ -119,7 +133,7 @@ suites:
       - recipe[elastic_beats_repo_test::v5]
     attributes:
       elastic_beats_repo:
-        version: 5.6.3
+        version: 5.6.9
 
   - name: chef13v5
     driver:
@@ -132,4 +146,17 @@ suites:
       - recipe[elastic_beats_repo_test::v5]
     attributes:
       elastic_beats_repo:
-        version: 5.6.3
+        version: 5.6.9
+
+  - name: chef14v5
+    driver:
+      chef_version: 14.0.201
+    verifier:
+      inspec_tests:
+        - test/smoke/v5
+    run_list:
+      - recipe[elastic_beats_repo::default]
+      - recipe[elastic_beats_repo_test::v5]
+    attributes:
+      elastic_beats_repo:
+        version: 5.6.9

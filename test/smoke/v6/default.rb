@@ -7,30 +7,35 @@
 
 if %w[redhat fedora amazon].include?(os[:family])
   describe file('/etc/yum.repos.d/beats.repo') do
-    its('content') { should match %r{https://artifacts.elastic.co/packages/5.x/yum} }
+    its('content') { should match %r{https://artifacts.elastic.co/packages/6.x/yum} }
   end
 else
   describe file('/etc/apt/sources.list.d/beats.list') do
-    its('content') { should match %r{https://artifacts.elastic.co/packages/5.x/apt} }
+    its('content') { should match %r{https://artifacts.elastic.co/packages/6.x/apt} }
   end
 end
 
 describe package('filebeat') do
   it { should be_installed }
-  its('version') { should match '5.6.9' }
+  its('version') { should match '6.2.4' }
 end
 
 describe package('packetbeat') do
   it { should be_installed }
-  its('version') { should match '5.6.9' }
+  its('version') { should match '6.2.4' }
 end
 
 describe package('metricbeat') do
   it { should be_installed }
-  its('version') { should match '5.6.9' }
+  its('version') { should match '6.2.4' }
 end
 
-describe package('heartbeat') do
+describe package('heartbeat-elastic') do
   it { should be_installed }
-  its('version') { should match '5.6.9' }
+  its('version') { should match '6.2.4' }
+end
+
+describe package('auditbeat') do
+  it { should be_installed }
+  its('version') { should match '6.2.4' }
 end
