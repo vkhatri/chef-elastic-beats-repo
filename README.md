@@ -12,14 +12,14 @@ This is a [Chef] cookbook to manage Elastic Beats YUM/APT [Repository].
 ## Most Recent Release
 
 ```ruby
-cookbook 'elastic_beats_repo', '~> 1.0.0'
+cookbook 'elastic_beats_repo', '~> 1.1.0'
 ```
 
 
 ## From Git
 
 ```ruby
-cookbook 'elastic_beats_repo', github: 'vkhatri/chef-elastic-beats-repo',  tag: 'v1.0.0'
+cookbook 'elastic_beats_repo', github: 'vkhatri/chef-elastic-beats-repo',  tag: 'v1.1.0'
 ```
 
 
@@ -53,7 +53,7 @@ https://github.com/vkhatri/chef-elastic-beats-repo
 
 ## Cookbook Dependency
 
-- apt
+- apt (`6.1.4`)
 - yum
 
 
